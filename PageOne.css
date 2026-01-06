@@ -48,10 +48,13 @@ body {
 }
 
 .background-video {
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.85;
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;       /* Breite passt sich Header an */
+    height: 100%;      /* Höhe passt sich Header an */
+    object-fit: cover; /* Füllt Container, schneidet proportional */
+    z-index: -1;       /* Bild hinter Text */
 
 /* Hintergrundbild */
 .header-bg {
