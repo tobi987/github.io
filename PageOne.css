@@ -1,6 +1,4 @@
 @charset "UTF-8";
-
-/* Farben */
 :root {
     --primary-color: #C8102E;
     --secondary-color: #FFFFFF;
@@ -8,7 +6,6 @@
     --accent-color: #D4AF37;
 }
 
-/* Grundlegendes Reset */
 * {
     margin: 0;
     padding: 0;
@@ -17,12 +14,12 @@
 
 body {
     font-family: 'Arial', sans-serif;
+   
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-/* Visually hidden für Accessibility */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -32,104 +29,126 @@ body {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
-    white-space: nowrap;
+    white-space: nowrap; /* Verhindert Zeilenumbruch */
 }
 
-/* ---------------- Header ---------------- */
-.header {
+
+/*Header {
     position: relative;
-    width: 100%;
-    height: 70vh;  
+    height: 100vh; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Bild wird nicht über Header hinaus angezeigt */
+    overflow: hidden;
 }
 
-.background-video {
+header .background-video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;       
-    height: 100%;      
-    object-fit: cover; 
-    z-index: -1;       /* Video hinter Text */
-}
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.85;
+} 
+*/
 
 
-/* Hintergrundbild */
-.header-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;       /* Breite passt sich Header an */
-    height: 100%;      /* Höhe passt sich Header an */
-    object-fit: cover; /* Füllt Container, schneidet proportional */
-    z-index: -1;       /* Bild hinter Text */
-}
 
-
-.hero-content {
+header {
     position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+header .background-video {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.85;
+}
+
+header h1, header p, header .cta {
     z-index: 1;
-    max-width: 800px;
-    padding: 0 20px;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
 }
 
-.hero-content h1 {
+header h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    font-weight: bold;
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+header p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+section p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.2rem;
+    color: var(--text-color);
 }
 
 .cta {
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     color: var(--secondary-color);
     padding: 15px 40px;
-    font-size: 1.2rem;
-    border-radius: 8px;
     border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
 
 .cta:hover {
-    background-color: #A50E23;
+    background: #A50E23;
     transform: scale(1.05);
 }
-
-/* ---------------- Navigation ---------------- */
 nav {
-    position: fixed;
+    position: fixed; /* Fixiert die Navigation oben auf der Seite */
     top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    left: 0; /* Verhindert, dass die Navigation außerhalb des Bildschirms verschwindet */
+    width: 100%; /* Stellt sicher, dass die Navigation die gesamte Breite einnimmt */
+    background: rgba(0, 0, 0, 0.9); /* Dunkler, transparenter Hintergrund */
     padding: 25px 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Verteilt das Logo und die Links */
     align-items: center;
-    z-index: 1000;
+    z-index: 1000; /* Stellt sicher, dass die Navigation über allem anderen bleibt */
 }
 
 nav .logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 50px; /* Angepasste Breite des Logos */
+    height: 50px; /* Höhe des Logos, gleich der Breite */
+    border-radius: 50%; /* Macht das Bild rund */
+    object-fit: cover; /* Sorgt dafür, dass das Bild gut in den runden Container passt */
+    position: absolute; /* Positioniert das Logo innerhalb der Navigation */
+    top: 50%; /* Zentriert das Logo vertikal innerhalb der Navigation */
+    right: 20px; /* Abstand zum linken Rand */
+    transform: translateY(-50%); /* Vertikale Zentrierung */
 }
+
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+}
+
+nav ul li {
+    display: inline;
 }
 
 nav ul li a {
@@ -144,37 +163,44 @@ nav ul li a:hover {
     color: var(--accent-color);
 }
 
-/* ---------------- About Section ---------------- */
 #about {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 20px;
+    display: flex; /* Aktiviert Flexbox */
+    justify-content: space-between; /* Platziert den Text nach links und das Bild nach rechts */
+    align-items: center; /* Vertikale Ausrichtung von Text und Bild */
 }
 
 #about .about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    display: flex; /* Flexbox für den Container */
+    justify-content: space-between; /* Abstände zwischen den Elementen */
+    align-items: center; /* Vertikale Ausrichtung */
+
+    width: 100%; /* Maximale Breite */
+}
+#about .h2 {
+	 text-align: center;
+}
+#about .p {
+	 text-align: left;
 }
 
 #about .about-text {
-    flex: 1;
-    margin-right: 20px;
+    flex: 1; /* Textbereich nimmt den größten Teil des Platzes ein */
+    margin-right: 20px; /* Abstand zum Bild */
+    align-items: center;
 }
 
 #about .about-image {
-    flex: 1;
-    max-width: 50%;
+    flex: 1; /* Bildbereich nimmt den restlichen Platz ein */
+    max-width: 50%; /* Bildbereich nimmt maximal 50% der Breite ein */
 }
 
 #about .about-image img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Bild soll die Breite des Containers ausfüllen */
+    height: auto; /* Beibehaltung des Seitenverhältnisses des Bildes */
 }
 
-/* ---------------- Sections ---------------- */
+
+
 section {
     padding: 80px 20px;
     text-align: center;
@@ -193,13 +219,13 @@ section p {
     color: var(--text-color);
 }
 
-/* ---------------- Features ---------------- */
 .features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     margin-top: 40px;
+    
 }
 
 .feature {
@@ -218,7 +244,13 @@ section p {
     font-size: 1.5rem;
 }
 
-/* ---------------- Image Gallery ---------------- */
+footer {
+    background: var(--text-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 20px;
+}
+
 #image-gallery {
     text-align: center;
     padding: 40px 20px;
@@ -231,49 +263,40 @@ section p {
 
 .image-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /* Verteilt die Bilder gleichmäßig */
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ermöglicht das Umfließen der Bilder bei kleinerem Bildschirm */
 }
 
 .image-item {
     flex: 1;
-    max-width: 30%;
+    max-width: 30%; /* Maximale Breite für jedes Bild */
     overflow: hidden;
 }
 
 .image-item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    width: 100%; /* Bilder passen sich der Größe des Containers an */
+    height: 300px; /* Stellt sicher, dass alle Bilder dieselbe Höhe haben */
+    object-fit: cover; /* Schneidet überstehende Teile ab, ohne das Bild zu verzerren */
+    border-radius: 10px; /* Abgerundete Ecken der Bilder */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Schatten für einen schönen Effekt */
+    transition: transform 0.3s ease; /* Animation für Hover-Effekt */
 }
 
 .image-item img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Vergrößerung der Bilder beim Hover */
 }
 
-/* ---------------- Footer ---------------- */
-footer {
-    background: var(--text-color);
-    color: var(--secondary-color);
-    text-align: center;
-    padding: 20px;
-}
 
-/* ---------------- Responsive ---------------- */
+
+/* Responsives Design */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
+    header h1 {
+        font-size: 2.5rem;
     }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .cta {
-        padding: 12px 25px;
-        font-size: 1rem;
+
+    header p {
+        font-size: 1.2rem;
     }
 
     nav ul {
@@ -284,28 +307,18 @@ footer {
     .features {
         flex-direction: column;
     }
-
-    #about {
-        flex-direction: column;
-        text-align: center;
+        #about {
+        flex-direction: column; /* Vertikale Anordnung auf kleinen Bildschirmen */
+        text-align: center; /* Text zentrieren */
     }
 
-    #about .about-text,
-    #about .about-image {
-        max-width: 100%;
-        margin: 0 0 20px 0;
+    #about .about-text, #about .about-image {
+        max-width: 100%; /* Beide Bereiche nehmen die volle Breite ein */
+        margin: 0 0 20px 0; /* Abstand zwischen Text und Bild */
     }
 
     #about .about-image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .image-item {
-        max-width: 100%;
-    }
-
-    .image-item img {
-        height: auto;
+        width: 100%; /* Bild passt sich der Breite an */
+        height: auto; /* Beibehaltung des Seitenverhältnisses */
     }
 }
