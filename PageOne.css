@@ -39,7 +39,7 @@ body {
 .header {
     position: relative;
     width: 100%;
-    height: 100vh; /* Header füllt gesamten Bildschirm */
+    height: 70vh;  
     display: flex;
     justify-content: center;
     align-items: center;
