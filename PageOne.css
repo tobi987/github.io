@@ -48,7 +48,7 @@ body {
 
     /* Hintergrundbild */
     background-color: #ccc;
-    background-image: url('./kimono.jpg');
+    background-image: url('kimono.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
