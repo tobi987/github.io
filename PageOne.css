@@ -56,6 +56,8 @@ body {
     object-fit: cover; /* Füllt Container, schneidet proportional */
     z-index: -1;       /* Bild hinter Text */
 
+}
+
 /* Hintergrundbild */
 .header-bg {
     position: absolute;
