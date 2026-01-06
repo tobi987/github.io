@@ -47,6 +47,12 @@ body {
     overflow: hidden; /* Bild wird nicht über Header hinaus angezeigt */
 }
 
+header .background-video {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.85;
+    
 /* Hintergrundbild */
 .header-bg {
     position: absolute;
