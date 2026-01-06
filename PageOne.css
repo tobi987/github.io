@@ -39,20 +39,25 @@ body {
 .header {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Header füllt gesamten Bildschirm */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: var(--secondary-color);
-
-    /* Hintergrundbild */
-    background-color: #ccc;
-    background-image: url('kimono.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden; /* Bild wird nicht über Header hinaus angezeigt */
 }
+
+/* Hintergrundbild */
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;       /* Breite passt sich Header an */
+    height: 100%;      /* Höhe passt sich Header an */
+    object-fit: cover; /* Füllt Container, schneidet proportional */
+    z-index: -1;       /* Bild hinter Text */
+}
+
 
 .hero-content {
     position: relative;
